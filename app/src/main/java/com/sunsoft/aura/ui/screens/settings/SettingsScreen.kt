@@ -1,4 +1,5 @@
 package com.sunsoft.aura.ui.screens.settings
+
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -79,4 +80,4 @@ fun SettingsScreen(
 }
 
 private fun Modifier.clickableRipple(onClick: () -> Unit): Modifier =
-    this.then(androidx.compose.foundation.clickable(onClick = onClick))
+    this.clickable(onClick = onClick)
