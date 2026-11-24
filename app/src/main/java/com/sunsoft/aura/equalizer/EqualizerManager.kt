@@ -49,7 +49,7 @@ object EqualizerManager {
     fun bands(): List<EqBand> {
         val eq = equalizer ?: return emptyList()
         val range = eq.bandLevelRange
-        return (0 until eq.numberOfBands).map { i ->
+        return (0 until eq.numberOfBands.toInt()).map { i ->
             val band = i.toShort()
             EqBand(
                 index = band,
@@ -72,7 +72,7 @@ object EqualizerManager {
     /** A few hand-picked starting points; the user can nudge sliders from there. */
     fun applyPreset(preset: Preset) {
         val eq = equalizer ?: return
-        val bandCount = eq.numberOfBands
+        val bandCount = eq.numberOfBands.toInt()
         val curve = when (preset) {
             Preset.FLAT -> IntArray(bandCount) { 0 }
             Preset.BASS -> intArrayOf(600, 500, 300, 0, -100, -100, 0, 0, 0, 0).take(bandCount).toIntArray()
